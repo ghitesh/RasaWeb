@@ -1,0 +1,66 @@
+slots:
+  time:
+    type: text
+  username:
+    type: text
+  top:
+    type: text
+  hastag:
+    type: text
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - tweets_word_freq
+  - tweets_count_by_time
+  - top_retweeted
+  - top_liked
+  - time_input
+  - hashtag_trend
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_gratitude:
+  - text: "Glad that I could be of help to you!"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great!!, how can I help you?"
+
+  utter_goodbye:
+  - text: "goodbye"
+
+  utter_help:
+  - text: "I am a bot, powered by Rasa."
+
+entities:
+  - username
+  - time
+  - top
+  - hashtag
+
+actions:
+  - action_tweets_by_keyword
+  - action_most_liked_tweet
+  - action_top_retweeted_tweet
+  - action_tweets_count_by_time
+  - action_hashtag_count
+  - action_hashtag_trend
+  - utter_did_that_help
+  - utter_goodbye
+  - utter_gratitude
+  - utter_greet
+  - utter_happy
+  - utter_help
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
