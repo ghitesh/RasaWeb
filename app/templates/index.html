@@ -1,0 +1,132 @@
+<html>
+<head>
+  <title> Chat Bot </title>
+    <style>
+        h1 {
+            color:Green;
+        }
+        div.scroll {
+            margin:4px;
+            padding:4px;
+            background-color: bisque;
+            width: 500px;
+            height: 810px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            text-align:justify;
+            position: relative;
+            justify-content: end;
+        }
+        div.chat{
+            line-height: 48px;
+            width: 80%;
+            margin:4px;
+            padding:4px;
+            border: black;
+            align-items: center;
+            position: inherit;
+            bottom: 0;
+        }
+        div.user {
+            border-top-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            text-align:right;
+            background-color: darkcyan;
+        //float: right;
+            justify-content: flex-end;
+            align-self: end;
+            margin-left: 20%;
+
+        }
+        div.bot {
+            margin-right: 20%;
+            border-top-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            text-align:left;
+            background-color: coral;
+            align-self: ;
+
+        }
+
+        img {
+        //#align: "center";
+            height: 36px;
+            width: 36px;
+            margin-top: 6px;
+            display: inline-block;
+        }
+
+    </style>
+    <script type="application/javascript">
+        function SendChat(value) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var elementDiv = document.createElement("div")
+                    var innerDiv = document.createElement("div")
+                    var image = document.createElement("img")
+
+                    elementDiv.className="chat"
+
+                    innerDiv.className="bot"
+                    innerDiv.textContent=this.responseText;
+
+                    image.src="user.png"
+                    image.height="36px"
+                    image.width="36px"
+
+                    //innerDiv.appendChild(image)
+
+                    elementDiv.appendChild(innerDiv)
+
+                    document.getElementById("staticArea").appendChild(elementDiv)
+
+
+                }
+            };
+            xhttp.open("GET", "chat/"+value, true);
+            xhttp.send();
+        }
+        function SendText (){
+            var userText = document.getElementById("message").value;
+            SendChat(userText)
+            var elementDiv = document.createElement("div")
+            var innerDiv = document.createElement("div")
+            var image = document.createElement("img")
+
+            elementDiv.className="chat"
+
+            innerDiv.className="user"
+            innerDiv.textContent=userText
+
+            image.src="user.png"
+            image.height="36px"
+            image.width="36px"
+
+            //innerDiv.appendChild(image)
+
+            elementDiv.appendChild(innerDiv)
+
+            document.getElementById("staticArea").appendChild(elementDiv)
+            document.getElementById("message").value=""
+
+
+        }
+    </script>
+</head>
+<body>
+
+<center>
+    <h1>Chat Chat</h1>
+    <div>
+        <div class="scroll" id="staticArea">
+        </div>
+        <div>
+            <input id="message" type="text" ><input type="button" value="Send" onClick="SendText()">
+        </div>
+    </div>
+</center>
+
+</body>
+</html>
