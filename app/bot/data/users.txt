@@ -1,0 +1,15 @@
+TCS
+TCS_News
+People_TCS
+TataCompanies
+TCS_AsiaPacific
+TCS_UKI
+tcs_na
+TCS_Europe
+TCSCognitiveBiz
+TCS_Digital
+TCS_iON
+TCS_BaNCS
+TCS_Fit4life
+TCS_ANZ
+TCSDigitalBiz
